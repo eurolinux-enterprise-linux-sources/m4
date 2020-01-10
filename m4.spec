@@ -1,7 +1,7 @@
 Summary: The GNU macro processor
 Name: m4
 Version: 1.4.16
-Release: 10%{?dist}
+Release: 7%{?dist}
 License: GPLv3+
 Group: Applications/Text
 Source0: http://ftp.gnu.org/gnu/m4/m4-%{version}.tar.xz
@@ -13,9 +13,6 @@ Patch0: m4-1.4.16-readlink-einval.patch
 # Patch1: Temporary fix to avoid build fails, this patch
 #         should be removed after updateing m4 to newer gnulib
 Patch1: m4-1.4.16-gnulib-gets.patch
-# Patch2: Fixes math tests for little-endian PowerPC,
-#         patch by Menanteau Guy and Ulrich Weigand
-Patch2: m4-1.4.17-gnulib-ppc64le.patch
 Requires(post): /sbin/install-info
 Requires(preun): /sbin/install-info
 # Gnulib bundled - the library has been granted an exception, see https://fedorahosted.org/fpc/ticket/174
@@ -36,7 +33,6 @@ Install m4 if you need a macro processor.
 %setup -q
 %patch0 -p1 -b .readlink-einval
 %patch1 -p1 -b .gnulib-gets
-%patch2 -p1 -b .gnulib-ppc64le
 chmod 644 COPYING
 
 %build
@@ -69,16 +65,6 @@ if [ "$1" = 0 ]; then
 fi
 
 %changelog
-* Thu Aug 07 2014 Vitezslav Crhonek <vcrhonek@redhat.com> - 1.4.16-10
-- Fix ppc64le test fails
-  Resolves: #1125604
-
-* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.4.16-9
-- Mass rebuild 2014-01-24
-
-* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.4.16-8
-- Mass rebuild 2013-12-27
-
 * Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.4.16-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
