@@ -1,7 +1,7 @@
 Summary: The GNU macro processor
 Name: m4
 Version: 1.4.16
-Release: 7%{?dist}
+Release: 9%{?dist}
 License: GPLv3+
 Group: Applications/Text
 Source0: http://ftp.gnu.org/gnu/m4/m4-%{version}.tar.xz
@@ -65,6 +65,12 @@ if [ "$1" = 0 ]; then
 fi
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.4.16-9
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.4.16-8
+- Mass rebuild 2013-12-27
+
 * Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.4.16-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
